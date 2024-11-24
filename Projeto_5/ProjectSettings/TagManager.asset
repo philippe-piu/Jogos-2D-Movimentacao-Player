@@ -42,13 +42,13 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 3618571821
+    uniqueID: 2670087117
     locked: 0
   - name: Center
-    uniqueID: 3695432047
+    uniqueID: 285763001
     locked: 0
   - name: Front
-    uniqueID: 1970359183
+    uniqueID: 3307062537
     locked: 0
   m_RenderingLayers:
   - Default
