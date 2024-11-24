@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         playerMovement.Movement();
+        playerMovement.Run();
+        playerMovement.Jump();
     }
 
 
