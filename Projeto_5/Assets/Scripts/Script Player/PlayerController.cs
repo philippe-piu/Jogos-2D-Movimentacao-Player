@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
         playerMovement.Movement();
         playerMovement.Run();
         playerMovement.Jump();
+        playerMovement.Crouch();
     }
 
 

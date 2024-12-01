@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float speedWalk;
     public float speedRun;
     private float horizontalMovement;
+    public bool playerCrouch = false;
 
     [Header("Jump")]
     public bool isGround = true;
@@ -22,8 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public void Awake()
     {
         rbd = GetComponent<Rigidbody2D>();
-        anima = GetComponent<Animator>();
-        
+        anima = GetComponent<Animator>(); 
     }
     
     void Start()
@@ -76,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //Método de Corrida
     public void Run()
     {
         // Verifica se o personagem está no chão usando um OverlapCapsule
@@ -127,4 +128,26 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //Método de agachar
+    public void Crouch()
+    {
+        // Verifica se o jogador não está se movendo horizontalmente(horizontalMovement == 0)
+        // e se a tecla de agachar (C) está sendo pressionada
+        if (horizontalMovement == 0 && Input.GetKey(KeyCode.C))
+        {
+            // Define a variável playerCrouch como verdadeira, indicando que o jogador está agachado
+            playerCrouch = true;
+            // Ativa a animação de agachar no Animator
+            anima.SetBool("crouch", true);
+        }
+
+        // Verifica se o jogador está se movendo horizontalmente (horizontalMovement != 0)
+        if (horizontalMovement != 0)
+        {
+            // Define a variável playerCrouch como falsa, indicando que o jogador não está agachado
+            playerCrouch = false;
+            // Desativa a animação de agachar no Animator
+            anima.SetBool("crouch", false);
+        }
+    }
 }
